@@ -1,5 +1,5 @@
-class SpaceShip {
-    constructor(hull=20, firepower=5, accuracy=.7) {
+class Ship {
+    constructor(hull, firepower, accuracy) {
         this.hull = hull;
         this.firepower = firepower;
         this.accuracy = accuracy;
@@ -10,11 +10,18 @@ class SpaceShip {
     }
 }
 
-console.log(SpaceShip)
+// console.log(Ship)
 
-const earthCaptain = new SpaceShip();
+class Player extends Ship {
+    constructor(hull=20, firepower=5, accuracy=.7) {
+    // super(); calls the parent constructor
+        super(hull, firepower, accuracy); // calls the this object {}
+    }
+}
 
-console.log(earthCaptain)
+const captain = new Player();
+
+console.log(captain)
 
 class Enemy {
     constructor(hull, firepower, accuracy) {
@@ -23,7 +30,7 @@ class Enemy {
         this.accuracy = accuracy;
     }
 
-    static randomHull(min, max) {
+    randomHull(min, max) {
         return Math.random() * (max - min) + min;
     }
     static randomFirepower(min, max) {
@@ -34,8 +41,8 @@ class Enemy {
     }
 }
 
-console.log(Enemy.randomHull(3, 6))
+// console.log(Enemy.randomHull(3, 6))
 
-const enemy0 = new Enemy(randomHull(3, 6));
+// const enemy0 = new Enemy(randomHull(3, 6));
 
-console.log(enemy0.randomHull(3, 6))
+// console.log(enemy0.randomHull(3, 6))
