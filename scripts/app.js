@@ -40,8 +40,8 @@ class Enemy extends Ship {
 }
 
 const alien1 = new Enemy();
-alien1.attack(captain);
-console.log(captain);
+captain.attack(alien1);
+console.log(alien1);
 
 // console.log(Enemy.randomHull(3, 6))
 
