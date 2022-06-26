@@ -38,6 +38,9 @@ console.log(user) // health is 40, attack method works
 const enemy4 = new Ship(4, 100, 8, Ship.getColors()[1]);
 console.log(enemy4)
 
+class Mammal {
+    constructor
+}
 class Person {
     constructor(firstname, lastname, age, birthdate, birthyear) {
         this.firstname = firstname;
