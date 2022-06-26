@@ -28,23 +28,17 @@ class Enemy extends Ship {
         super(hull, firepower, accuracy);
     }
 
-    randomHull(min, max) {
-        return Math.random() * (max - min) + min;
+    randomHull() {
+        return Math.random() * (6 - 3) + 3;
     }
-    static randomFirepower(min, max) {
-        return Math.random() * (max - min) + min;
+    randomFirepower() {
+        return Math.random() * (4 - 2) + 2;
     }
-    static randomAccuracy(min, max) {
-        return Math.random() * (max - min) + min;
+    randomAccuracy() {
+        return Math.random() * (.8 - .6) + .6;
     }
 }
 
 const alien1 = new Enemy();
 captain.attack(alien1);
-console.log(alien1);
-
-// console.log(Enemy.randomHull(3, 6))
-
-// const enemy0 = new Enemy(randomHull(3, 6));
-
-// console.log(enemy0.randomHull(3, 6))
+console.log(alien1.randomAccuracy());
