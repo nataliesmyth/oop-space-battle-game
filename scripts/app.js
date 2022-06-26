@@ -6,7 +6,7 @@ class Ship {
     }
 
     attack(target) {
-        target.health = target.health - this.damage;
+        target.hull = target.hull - this.firepower;
     }
 }
 
@@ -23,11 +23,9 @@ const captain = new Player();
 
 console.log(captain)
 
-class Enemy {
-    constructor(hull, firepower, accuracy) {
-        this.hull = hull;
-        this.firepower = firepower;
-        this.accuracy = accuracy;
+class Enemy extends Ship {
+    constructor(hull=20, firepower=5, accuracy=.7) {
+        super(hull, firepower, accuracy);
     }
 
     randomHull(min, max) {
@@ -40,6 +38,10 @@ class Enemy {
         return Math.random() * (max - min) + min;
     }
 }
+
+const alien1 = new Enemy();
+alien1.attack(captain);
+console.log(captain);
 
 // console.log(Enemy.randomHull(3, 6))
 
