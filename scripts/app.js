@@ -21,19 +21,25 @@ console.log(ussAssembly)
 const alienShip = new Ship();
 console.log(alienShip)
 
+const alienShips = []
+for (let i = 0; i < 6; i++) {
+    alienShips.push(new Ship())
+}
 // const alienShip1 = new Ship();
-// console.log(alienShip1)
+console.log(alienShips)
+if (alienShip.hull <= 0) {
+    console.log('You destroyed the alien ship')
+
+}
 
 ussAssembly.attack(alienShip)
 if (Math.random() < alienShip.accuracy) {
-    console.log('you hit the alien ship! Attack again!')
+    console.log('you hit the alien ship! Attack again!');
 } else {
-    console.log('You missed!')
+    console.log('You missed!');
 }
-alienShip.attack(ussAssembly)
 console.log(ussAssembly)
-console.log(alienShip)
 
-if (alienShip.hull <= 0) {
-    console.log('You destroyed the alien ship')
+if (ussAssembly.hull <= 0) {
+    console.log('game over');
 }
