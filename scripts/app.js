@@ -30,13 +30,21 @@ class Enemy extends Ship {
 
 }
 
-
+const aliens = [];
+for (let i = 0; i < 6; i ++) {
+    
+}
 const alien1 = new Enemy(Math.random() * (6 - 3) + 3, Math.random() * (4 - 2) + 2,Math.random() * (.8 - .6) + .6);
 console.log(alien1)
+console.log(captain)
 captain.attack(alien1);
+if (Math.random() < alien1.accuracy) {
+	console.log('You have been hit!');
+} else {
+    console.log('You have not been hit!!')
+}
 console.log(alien1);
 alien1.attack(captain)
-console.log(captain)
 
 if (Ship.hull <= 0) {
     console.log('ship is destroyed')
