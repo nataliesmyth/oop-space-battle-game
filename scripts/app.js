@@ -15,31 +15,35 @@ class Ship {
 
 // Player
 const ussAssembly = new Ship(20, 5, .7);
-console.log(ussAssembly)
+// console.log(ussAssembly)
 
 // Enemy
-const alienShip = new Ship();
-console.log(alienShip)
+// const alienShip = new Ship();
 
+// Empty Array to populate with aliens
 const alienShips = []
+
+// Alien Army!
 for (let i = 0; i < 6; i++) {
     alienShips.push(new Ship())
 }
-// const alienShip1 = new Ship();
+
 console.log(alienShips)
-if (alienShip.hull <= 0) {
-    console.log('You destroyed the alien ship')
 
+// Player battles each alien one at a time
+// We have to loop through each alien ship until all are defeated, or the player is defeated
+// if hull <= 0, game over
+for (let j = 0; j < alienShips.length; j++)  {
+
+    while (Math.random() > alienShips[j].accuracy && ussAssembly.hull <= 0 && alienShips[j].hull <= 0) {
+        ussAssembly.attack(alienShips[j])
+        console.log('you hit the alien ship! Attack again!');
+    }
+    if (Math.random() < alienShips[j].accuracy) {
+        console.log('You have been it!');
+        alienShips[j].attack(ussAssembly);
+        console.log(ussAssembly)
+    } 
 }
 
-ussAssembly.attack(alienShip)
-if (Math.random() < alienShip.accuracy) {
-    console.log('you hit the alien ship! Attack again!');
-} else {
-    console.log('You missed!');
-}
-console.log(ussAssembly)
 
-if (ussAssembly.hull <= 0) {
-    console.log('game over');
-}
