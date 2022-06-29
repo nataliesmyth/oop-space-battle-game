@@ -1,8 +1,9 @@
 class Ship {
     constructor(hull, firepower, accuracy) {
-        this.hull = hull;
-        this.firepower = firepower;
-        this.accuracy = accuracy;
+        // this = {} i.e, an empty object
+        this.hull = hull || Math.random() * (6 - 3) + 3;
+        this.firepower = firepower || Math.random() * (4 - 2) + 2;
+        this.accuracy = accuracy || Math.random() * (.8 - .6) + .6;
     }
 
     attack(target) {
@@ -12,40 +13,27 @@ class Ship {
 
 // console.log(Ship)
 
-class Player extends Ship {
-    constructor(hull=20, firepower=5, accuracy=.7) {
-    // super(); calls the parent constructor
-        super(hull, firepower, accuracy); // calls the this object {}
-    }
-}
+// Player
+const ussAssembly = new Ship(20, 5, .7);
+console.log(ussAssembly)
 
-const captain = new Player();
+// Enemy
+const alienShip = new Ship();
+console.log(alienShip)
 
-console.log(captain)
+// const alienShip1 = new Ship();
+// console.log(alienShip1)
 
-class Enemy extends Ship {
-    constructor(hull, firepower, accuracy) {
-        super(hull, firepower, accuracy);
-    }
-
-}
-
-const aliens = [];
-for (let i = 0; i < 6; i ++) {
-    
-}
-const alien1 = new Enemy(Math.random() * (6 - 3) + 3, Math.random() * (4 - 2) + 2,Math.random() * (.8 - .6) + .6);
-console.log(alien1)
-console.log(captain)
-captain.attack(alien1);
-if (Math.random() < alien1.accuracy) {
-	console.log('You have been hit!');
+ussAssembly.attack(alienShip)
+if (Math.random() < alienShip.accuracy) {
+    console.log('you hit the alien ship! Attack again!')
 } else {
-    console.log('You have not been hit!!')
+    console.log('You missed!')
 }
-console.log(alien1);
-alien1.attack(captain)
+alienShip.attack(ussAssembly)
+console.log(ussAssembly)
+console.log(alienShip)
 
-if (alien1.hull <= 0) {
-    console.log('ship is destroyed')
+if (alienShip.hull <= 0) {
+    console.log('You destroyed the alien ship')
 }
