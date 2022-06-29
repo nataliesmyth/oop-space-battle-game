@@ -24,21 +24,14 @@ const captain = new Player();
 console.log(captain)
 
 class Enemy extends Ship {
-    constructor(hull=20, firepower=5, accuracy=.7) {
+    constructor(hull=Math.random() * (6 - 3) + 3, firepower=Math.random() * (4 - 2) + 2, accuracy=Math.random() * (.8 - .6) + .6) {
         super(hull, firepower, accuracy);
     }
 
-    randomHull() {
-        return Math.random() * (6 - 3) + 3;
-    }
-    randomFirepower() {
-        return Math.random() * (4 - 2) + 2;
-    }
-    randomAccuracy() {
-        return Math.random() * (.8 - .6) + .6;
-    }
 }
 
+
 const alien1 = new Enemy();
+console.log(alien1.hull)
 captain.attack(alien1);
-console.log(alien1.randomAccuracy());
+console.log(alien1);
