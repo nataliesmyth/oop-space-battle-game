@@ -46,6 +46,6 @@ if (Math.random() < alien1.accuracy) {
 console.log(alien1);
 alien1.attack(captain)
 
-if (Ship.hull <= 0) {
+if (alien1.hull <= 0) {
     console.log('ship is destroyed')
 }
