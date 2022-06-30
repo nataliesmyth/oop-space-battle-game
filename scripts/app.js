@@ -3,17 +3,18 @@ const player = {
     hull: 20,
     firepower: 5,
     accuracy: .7,
-    attack: attack,
+    attack(target) {
+        target.hull = target.hull - this.firepower;
+    }
 }
 
 // functions to manipulate properties
 
-function attack(target) {
-    target.hull =- this.firepower
-}
 function getRandomNumber (min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor(Math.random() * (max - min) + min);
 }
+
+console.log(getRandomNumber(3, 6))
 
 function getRandomDecimal (min, max) {
     if ((min || max) >= 1 || (min || max) < 0) {
@@ -25,13 +26,17 @@ function getRandomDecimal (min, max) {
 
 // enemy class
 class Enemy {
-    constructor(hull, firepower, accuracy) {
+    constructor() {
         this.hull = getRandomNumber(3, 6);
         this.firepower = getRandomNumber(2, 4);
         this.accuracy = getRandomDecimal(.6, .8);
-        this.attack = attack
+    }
+    attack(target) {
+        this.hull = this.hull - this.firepower;
     }
 }
+console.log(Enemy)
+
 
 // Alien Army Array
 const enemyShips = []
@@ -41,7 +46,7 @@ for (let i = 0; i < 6; i++) {
     enemyShips.push(new Enemy())
 }
 
-console.log(enemyShips)
+console.log(enemyShips[0].hull)
 
 // Player battles each alien one at a time
 // We have to loop through each alien ship until all are defeated, or the player is defeated
@@ -73,10 +78,8 @@ function playerMove(enemy) {
 };
 
 function gameOver() {
-    for (let i = 0; i < enemyShips.length; i++) {
-        if ((enemyShips[i].hull) <= 0 || (player.hull) <=0) {
+        if ((enemyShips[0].hull) <= 0 || (player.hull) <=0) {
     }
-        return 'game over'
-    }
+        console.log('game over')
 }
 console.log(playerMove(enemyShips[0]));
