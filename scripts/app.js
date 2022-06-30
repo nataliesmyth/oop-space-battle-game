@@ -14,43 +14,35 @@ function getRandomNumber (min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+function getRandomDecimal (min, max) {
+    if (min || max >= 1) || (min || max < 0) {
+        console.log('please use numbers between 0 and 1')
+    } else {
+        return Math.random() * (max - min) + min;
+    }
+}
+
 // enemy class
 class Enemy {
     constructor(hull, firepower, accuracy) {
-
+        this.hull = getRandomNumber(3, 6);
+        this.firepower = getRandomNumber(2, 4);
+        this.accuracy = getRandomDecimal(.6, .8);
     }
 }
-class Ship {
-    constructor(hull, firepower, accuracy) {
-        // this = {} i.e, an empty object
-        this.hull = hull || Math.random() * (6 - 3) + 3;
-        this.firepower = firepower || Math.random() * (4 - 2) + 2;
-        this.accuracy = accuracy || Math.random() * (.8 - .6) + .6;
-    }
-
-    attack(target) {
-        target.hull = target.hull - this.firepower;
-    }
-}
-
-// console.log(Ship)
-
-// Player
-const ussAssembly = new Ship(20, 5, .7);
-// console.log(ussAssembly)
 
 // Enemy
 // const alienShip = new Ship();
 
 // Empty Array to populate with aliens
-const alienShips = []
+const enemyShips = []
 
-// Alien Army!
+// Create your army (populate empty array with desired amount of ships)
 for (let i = 0; i < 6; i++) {
-    alienShips.push(new Ship())
+    enemyShips.push(new Ship())
 }
 
-console.log(alienShips)
+console.log(enemyShips)
 
 // Player battles each alien one at a time
 // We have to loop through each alien ship until all are defeated, or the player is defeated
