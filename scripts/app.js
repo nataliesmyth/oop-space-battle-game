@@ -1,3 +1,25 @@
+// player object
+const player = {
+    hull: 20,
+    firepower: 5,
+    accuracy: .7,
+    attack(target) {
+        target.hull = target.hull - this.firepower;
+    }
+}
+
+// functions
+
+function getRandomNumber (min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+// enemy class
+class Enemy {
+    constructor(hull, firepower, accuracy) {
+
+    }
+}
 class Ship {
     constructor(hull, firepower, accuracy) {
         // this = {} i.e, an empty object
