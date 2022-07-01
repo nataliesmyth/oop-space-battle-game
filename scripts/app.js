@@ -33,8 +33,9 @@ class Enemy {
     }
     attack(target) {
         this.hull = this.hull - this.firepower;
-    }
-}
+    };
+};
+
 console.log(Enemy)
 
 
