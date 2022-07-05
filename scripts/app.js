@@ -66,6 +66,8 @@ const playGame = (player, target) => {
     }
 }
 
+playGame(player, alienArmy)
+
 const gameOver = () => {
         if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
             console.log('game over')
