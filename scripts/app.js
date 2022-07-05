@@ -27,6 +27,7 @@ class Player extends Ship {
     }
 }
 
+
 // Alien Class
 class Alien extends Ship {
     constructor(name, hull = 3 + Math.floor(Math.random() * 3), firepower = 2 + Math.floor(Math.random() * 2), accuracy = 0.6 + Math.random() * 0.2) {
@@ -36,6 +37,7 @@ class Alien extends Ship {
 
 // Player
 const player = new Player('USS Assembly', 20, 5, 0.7);
+console.log(player);
 
 // Alien Army
 const alienArmy = [];
@@ -46,22 +48,6 @@ for (let i = 0; i < 6; i++) {
 }
 
 console.log(alienArmy)
-
-// Player battles each alien one at a time
-// We have to loop through each alien ship until all are defeated, or the player is defeated
-// if hull <= 0, game over
-// for (let j = 0; j < alienArmy.length; j++)  {
-
-//     while (Math.random() > alienArmy[j].accuracy && player.hull <= 0 && alienArmy[j].hull <= 0) {
-//         player.attack(alienArmy[j])
-//         console.log('you hit the alien ship! Attack again!');
-//     }
-//     if (Math.random() < alienArmy[j].accuracy) {
-//         console.log('You have been it!');
-//         alienArmy[j].attack(player);
-//         console.log(player)
-//     } 
-// }
 
 // game rounds
 
@@ -81,5 +67,3 @@ function gameOver() {
     }
         console.log('game over')
 }
-
-console.log(playerMove(alienArmy[0]));
