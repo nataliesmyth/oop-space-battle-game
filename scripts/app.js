@@ -64,6 +64,6 @@ function playerMove(enemy) {
 
 function gameOver() {
         if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
+            console.log('game over')
     }
-        console.log('game over')
 }
