@@ -51,7 +51,7 @@ console.log(alienArmy)
 
 
 
-function battle(player, target) {
+const battle = (player, target) => {
     while (player.hull > 0 && target.hull > 0) {
         player.attack(target);
         if (target.hull > 0) {
@@ -60,7 +60,13 @@ function battle(player, target) {
     }
 }
 
-function gameOver() {
+const playGame = (player, target) => {
+    for (let i = 0; i < target.length; i++) {
+        battle(player, target[i]);
+    }
+}
+
+const gameOver = () => {
         if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
             console.log('game over')
     }
