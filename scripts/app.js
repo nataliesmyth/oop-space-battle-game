@@ -8,11 +8,11 @@ class Ship {
     }
     attack(target) {
         if (Math.random() > this.accuracy) {
-            console.log(`${this.name} missed`);
+            console.log(`${this.name} missed ${this.name} has a hull of ${this.hull}.`);
         } else {
             target.hull -= this.firepower
             if (target.hull <= 0) {
-                console.log(`${this.name} destroyed ${target.name}`)
+                console.log(`${this.name} destroyed ${target.name}. ${target.name}'s hull is ${target.hull}`)
             } else{
                 console.log(`${this.name} hit ${target.name} for ${this.firepower} damage. ${target.name} has ${target.hull} hull`);
             }
@@ -49,18 +49,7 @@ for (let i = 0; i < 6; i++) {
 
 console.log(alienArmy)
 
-// game rounds
-
-function playerMove(enemy) {
-    if (Math.random() < player.accuracy) {
-        player.attack(enemy);
-        return `Direct hit! Enemy ship hull: ${enemy.hull}`
-    } else if (Math.random() > player.accuracy) {
-        enemy.attack(player);
-        return `You missed! Enemy ship hull: ${enemy.hull}`
-    };
-    gameOver();
-};
+player.attack(alienArmy[0])
 
 function gameOver() {
         if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
