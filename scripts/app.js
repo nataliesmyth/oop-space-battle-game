@@ -49,7 +49,16 @@ for (let i = 0; i < 6; i++) {
 
 console.log(alienArmy)
 
-player.attack(alienArmy[0])
+
+
+function battle(player, target) {
+    while (player.hull > 0 && target.hull > 0) {
+        player.attack(target);
+        if (target.hull > 0) {
+            target.attack(player);
+        }
+    }
+}
 
 function gameOver() {
         if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
