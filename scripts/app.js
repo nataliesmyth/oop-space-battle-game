@@ -6,6 +6,18 @@ class Ship {
         this.firepower = firepower;
         this.accuracy = accuracy;
     }
+    attack(target) {
+        if (Math.random() > this.accuracy) {
+            console.log(`${this.name} missed`);
+        } else {
+            target.hull -= this.firepower
+            if (target.hull <= 0) {
+                console.log(`${this.name} destroyed ${target.name}`)
+            } else{
+                console.log(`${this.name} hit ${target.name} for ${this.firepower} damage. ${target.name} has ${target.hull} hull`);
+            }
+        }
+    }
 }
 
 // Player Class
@@ -35,22 +47,18 @@ for (let i = 0; i < 6; i++) {
 
 console.log(alienArmy)
 
-
-// Alien Army Array
-const enemyShips = []
-
 // Player battles each alien one at a time
 // We have to loop through each alien ship until all are defeated, or the player is defeated
 // if hull <= 0, game over
-// for (let j = 0; j < enemyShips.length; j++)  {
+// for (let j = 0; j < alienArmy.length; j++)  {
 
-//     while (Math.random() > enemyShips[j].accuracy && player.hull <= 0 && enemyShips[j].hull <= 0) {
-//         player.attack(enemyShips[j])
+//     while (Math.random() > alienArmy[j].accuracy && player.hull <= 0 && alienArmy[j].hull <= 0) {
+//         player.attack(alienArmy[j])
 //         console.log('you hit the alien ship! Attack again!');
 //     }
-//     if (Math.random() < enemyShips[j].accuracy) {
+//     if (Math.random() < alienArmy[j].accuracy) {
 //         console.log('You have been it!');
-//         enemyShips[j].attack(player);
+//         alienArmy[j].attack(player);
 //         console.log(player)
 //     } 
 // }
@@ -69,9 +77,9 @@ function playerMove(enemy) {
 };
 
 function gameOver() {
-        if ((enemyShips[0].hull) <= 0 || (player.hull) <=0) {
+        if ((alienArmy[0].hull) <= 0 || (player.hull) <=0) {
     }
         console.log('game over')
 }
 
-console.log(playerMove(enemyShips[0]));
+console.log(playerMove(alienArmy[0]));
